@@ -8,12 +8,13 @@
   Bubble sort works by comparing two adjacent numbers next to each other and then
   swapping their places if the smaller index's value is larger than the larger
   index's. Continue looping through until all values are in ascending order
+
+  Note: To create visualization copy function's body to src/Sort.js and uncomment snapshot(nums). Run with npm start
+
 */
 
 
 function bubbleSort(nums) {
-  // Copy function's body to src/Sort.js and uncomment snapshot(nums)
-  // Run with npm start
   let swapped = true; // sentinel variable
   for (let it = 0; swapped; it++) {
     swapped = false;
@@ -39,7 +40,7 @@ test("bubble sort", function () {
   const t1 = [1];
   bubbleSort(t1);
   expect(t1).toEqual([1]);
-  const t2 = [10, 5, 3, 8, 2, 6, 4, 7, 9, 1];
+  let t2 = [10, 5, 3, 8, 2, 6, 4, 7, 9, 1];
   bubbleSort(t2);
   expect(t2).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   const t3 = [3,2,1];
