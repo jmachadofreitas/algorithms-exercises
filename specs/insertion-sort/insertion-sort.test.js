@@ -10,7 +10,7 @@
   Like bubble sort, there's a visualization mechanism available to you. Just call snapshot(myArray) at the beginning of
   your inner loop and it should handle the rest for you!
   
-  And you put xdescribe instead of describe if you want to suspend running the unit tests.  
+  And you put `xdescribe` instead of `describe` if you want to suspend running the unit tests.  
 */
 
 function _insertionSort(nums) {
