@@ -9,13 +9,46 @@
 
 */
 
+function getDigit(number, place, maxLength) {
+  return Math.floor(Math.abs(number) / (10 ** place)) % 10;
+}
+
 function radixSort(array) {
-  // code goes here
+
+  // Find longest number length
+  const maxLength = Math.max(
+    ...array.map(n => { 
+      return Math.abs(n).toString().length;
+    })
+  );
+
+  // Create buckets: 10 buckets, since sorting base 10 numbers.
+  const buckets = new Array(10).fill().map(() => []); // make an array of 10 arrays
+  // const buckets = Array(10).fill([]); // WRONG
+
+  for (let i = 0; i < maxLength; i++) {
+
+    // enqueue the numbers
+    while (array.length) {
+      const num = array.shift();
+      const digit = getDigit(num, i, maxLength);
+      buckets[digit].push(num);
+    }
+
+    // dequeue the numbers
+    for (let j=0; j < 10; j++) {
+      while ( buckets[j].length) {
+        array.push(buckets[j].shift());
+      }
+    }
+    
+  }
+  return array;
 }
 
 // unit tests
 // do not modify the below code
-describe.skip("radix sort", function () {
+describe("radix sort", function () {
   it("should sort correctly", () => {
     const nums = [
       20,

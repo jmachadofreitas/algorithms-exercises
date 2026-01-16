@@ -12,12 +12,26 @@ function merge(left, right) {
   while (left.length && right.length) {
     if (left[0] <= right[0]) {
       // shift: dequeu or pop from front 
-      res.push(left.shift());
+      res.push(left.shift()); // might be inneficient
     } else {
       res.push(right.shift());
     }
   }
   return res.concat(left, right);
+}
+
+
+function merge_explicit(left, right) {
+  // Probably more efficient
+  let result = [];
+
+  // Merge
+  // TODO
+
+  // Concat remaining
+  // TODO
+
+  return result;
 }
 
 const mergeSort = (nums) => {
